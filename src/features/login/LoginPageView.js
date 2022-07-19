@@ -1,4 +1,4 @@
-import {useAuth} from "../../utils/hook/useAuth";
+import {useAuth} from "../../shared/hook/useAuth";
 
 export default function LoginPageView() {
     const {login} = useAuth();

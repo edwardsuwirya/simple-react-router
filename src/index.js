@@ -8,7 +8,7 @@ import BillPageView from "./features/bill/BillPageView";
 import BillInfoView from "./features/bill/BillInfoView";
 import LoginPageView from "./features/login/LoginPageView";
 import ProtectedRoute from "./navigation/ProtectedRoute";
-import {AuthProvider} from "./utils/hook/useAuth";
+import {AuthProvider} from "./shared/hook/useAuth";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

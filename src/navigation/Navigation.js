@@ -1,5 +1,5 @@
 import {Link, Outlet} from "react-router-dom";
-import {useAuth} from "../utils/hook/useAuth";
+import {useAuth} from "../shared/hook/useAuth";
 
 const Navigation = () => {
     const {logout} = useAuth();

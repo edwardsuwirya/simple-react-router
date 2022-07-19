@@ -1,6 +1,6 @@
 import {getBill} from "../../services/BillService";
 import {Link, Outlet} from "react-router-dom";
-import {useAuth} from "../../utils/hook/useAuth";
+import {useAuth} from "../../shared/hook/useAuth";
 
 export default function BillPageView() {
     let bills = getBill();
