@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom";
-import {getBillById} from "./BillService";
+import {getBillById} from "../../services/BillService";
 
 export default function BillInfoView() {
     let params = useParams();

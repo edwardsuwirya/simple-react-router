@@ -1,7 +1,7 @@
 // Langkah
 // 1. install dependency : npm install react-router-dom@6
 // 2. mengkoneksikan aplikasi kita ke browser URL (index.js)
-import {Outlet, Link} from "react-router-dom";
+import Navigation from "./navigation/Navigation";
 
 /*
 rem = “root em”, unit of measurement font size dari sebuah root element.
@@ -18,16 +18,7 @@ function App() {
     return (
         <div>
             <h1>WMB Point Of Sales</h1>
-            <nav
-                style={{
-                    borderBottom: "solid 1px",
-                    paddingBottom: "1rem",
-                }}
-            >
-                <Link to="/master">Master</Link> |{" "}
-                <Link to="/bill">Customer's Bill</Link>
-            </nav>
-            <Outlet/>
+            <Navigation/>
         </div>
     );
 }

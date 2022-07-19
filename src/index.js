@@ -4,26 +4,31 @@ import './index.css';
 import App from './App';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import MasterPageView from "./MasterPageView";
-import BillPageView from "./BillPageView";
-import BillInfoView from "./BillInfoView";
+import BillPageView from "./features/bill/BillPageView";
+import BillInfoView from "./features/bill/BillInfoView";
+import LoginPageView from "./features/login/LoginPageView";
+import ProtectedRoute from "./navigation/ProtectedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<App/>}>
-                    <Route path="master" element={<MasterPageView/>}/>
-                    <Route path="bill" element={<BillPageView/>}>
-                        <Route
-                            index
-                            element={
-                                <main style={{ padding: "1rem" }}>
-                                    <p>Select an invoice</p>
-                                </main>
-                            }
-                        />
-                        <Route path=":billId" element={<BillInfoView/>}/>
+                <Route index element={<LoginPageView/>}/>
+                <Route element={<ProtectedRoute/>}>
+                    <Route path="main" element={<App/>}>
+                        <Route path="master" element={<MasterPageView/>}/>
+                        <Route path="bill" element={<BillPageView/>}>
+                            <Route
+                                index
+                                element={
+                                    <main style={{padding: "1rem"}}>
+                                        <p>Select an invoice</p>
+                                    </main>
+                                }
+                            />
+                            <Route path=":billId" element={<BillInfoView/>}/>
+                        </Route>
                     </Route>
                 </Route>
                 <Route

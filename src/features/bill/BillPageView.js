@@ -1,8 +1,10 @@
-import {getBill} from "./BillService";
+import {getBill} from "../../services/BillService";
 import {Link, Outlet} from "react-router-dom";
+import {useAuth} from "../../utils/hook/useAuth";
 
 export default function BillPageView() {
     let bills = getBill();
+    const auth = useAuth('bill')
     return (
         <main style={{padding: "1rem 0"}}>
             <h2>Bill</h2>
@@ -17,7 +19,7 @@ export default function BillPageView() {
                     {bills.map((bill) => (
                         <Link
                             style={{display: "block", margin: "1rem 0"}}
-                            to={`/bill/${bill.id}`}
+                            to={`/main/bill/${bill.id}`}
                             key={bill.id}
                         >
                             {bill.id} - {bill.name}
