@@ -1,13 +1,8 @@
-import {Link, Outlet, useNavigate} from "react-router-dom";
-import {useLocalStorage} from "../utils/hook/useLocalStorage";
+import {Link, Outlet} from "react-router-dom";
+import {useAuth} from "../utils/hook/useAuth";
 
 const Navigation = () => {
-    const navigate = useNavigate();
-    const [value, setValue] = useLocalStorage('user')
-    const onLogout = () => {
-        setValue(null);
-        navigate("/", {replace: true});
-    }
+    const {logout} = useAuth();
     return (
         <>
             <nav
@@ -18,7 +13,7 @@ const Navigation = () => {
             >
                 <Link to="/main/master">Master</Link> |{" "}
                 <Link to="/main/bill">Customer's Bill</Link>
-                <button onClick={onLogout}>Logout</button>
+                <button onClick={logout}>Logout</button>
             </nav>
             <Outlet/>
         </>
