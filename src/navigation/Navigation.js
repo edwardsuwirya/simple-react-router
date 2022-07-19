@@ -1,9 +1,11 @@
 import {Link, Outlet, useNavigate} from "react-router-dom";
+import {useLocalStorage} from "../utils/hook/useLocalStorage";
 
 const Navigation = () => {
     const navigate = useNavigate();
+    const [value, setValue] = useLocalStorage('user')
     const onLogout = () => {
-        localStorage.removeItem('user');
+        setValue(null);
         navigate("/", {replace: true});
     }
     return (

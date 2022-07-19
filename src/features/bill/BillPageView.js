@@ -4,7 +4,6 @@ import {useAuth} from "../../utils/hook/useAuth";
 
 export default function BillPageView() {
     let bills = getBill();
-    const auth = useAuth('bill')
     return (
         <main style={{padding: "1rem 0"}}>
             <h2>Bill</h2>
